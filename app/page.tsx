@@ -114,57 +114,71 @@ export default function Home() {
     <main className="min-h-screen page-bg pb-12">
       <Navbar />
 
-      {/* HERO */}
-      <section id="hero" className="pt-28 pb-14 lg:pt-32">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 lg:flex-row lg:items-center lg:gap-16">
-          {/* Texto */}
-          <div className="flex-1 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-3 py-1 text-[11px] font-semibold text-brandDeepBlue">
-              <span className="h-1.5 w-1.5 rounded-full bg-brandOcean" />
-              Turismo ecológico y cultural en San Blas, Panamá.
-            </div>
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight text-brandDeepBlue sm:text-4xl lg:text-5xl">
-              San Blas Wave:
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brandOcean via-brandTeal to-brandOcean">
-                vive el Caribe Guna con calma.
-              </span>
-            </h1>
-            <p className="max-w-xl text-sm text-slate-600 sm:text-base">
-              Diseñamos viajes simples, seguros y auténticos a islas de agua
-              turquesa, junto a comunidades Guna y aliados en Panamá y
-              Colombia.
-            </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <Link href="#contacto" className="btn-primary">
-                Cotizar mi viaje
-              </Link>
-              <Link
-                href="https://wa.me/50765654768"
-                target="_blank"
-                className="btn-outline"
-              >
-                WhatsApp (español)
-              </Link>
-              <Link
-                href="https://wa.me/17789918346"
-                target="_blank"
-                className="btn-outline"
-              >
-                WhatsApp (English)
-              </Link>
-            </div>
-            <div className="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-500">
-              <span>Rutas Panamá ↔ Colombia</span>
-              <span className="text-slate-400">•</span>
-              <span>Días de sol y tours 2–5 días</span>
-              <span className="text-slate-400">•</span>
-              <span>Turismo responsable en Guna Yala</span>
-            </div>
-          </div>
-
-          {/* Hero slider */}
-          <div className="flex-1">
+      {/* HERO full background */}
+      <section id="hero" className="pt-24 pb-14 lg:pt-32">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="relative overflow-hidden rounded-[32px] border border-brandSoftBlue/80 bg-brandDeepBlue shadow-soft">
+            {/* Fondo slider con imágenes grandes */}
             <HeroSlider />
+
+            {/* Contenido sobre el fondo */}
+            <div className="relative z-10 flex min-h-[360px] flex-col justify-between px-6 py-8 sm:px-10 sm:py-12 lg:min-h-[440px] lg:px-14">
+              <div className="max-w-xl space-y-5">
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-brandDeepBlue shadow-soft">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brandTeal" />
+                  Viajes ecológicos y culturales en San Blas, Panamá.
+                </div>
+                <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-[2.6rem]">
+                  San Blas Wave:
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brandTeal via-brandOcean to-brandOrange">
+                    mar turquesa, islas y cultura Guna.
+                  </span>
+                </h1>
+                <p className="max-w-lg text-sm text-slate-100/90 sm:text-base">
+                  Organizamos días de sol, tours de varios días y expediciones
+                  Panamá ↔ Colombia, con grupos pequeños y comunidades Guna
+                  anfitrionas.
+                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="#contacto" className="btn-primary">
+                    Cotizar mi viaje
+                  </Link>
+                  <Link
+                    href="https://wa.me/50765654768"
+                    target="_blank"
+                    className="btn-outline"
+                  >
+                    WhatsApp (ES)
+                  </Link>
+                  <Link
+                    href="https://wa.me/17789918346"
+                    target="_blank"
+                    className="btn-outline"
+                  >
+                    WhatsApp (EN)
+                  </Link>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-100/90">
+                  <span>Rutas Panamá ↔ Colombia</span>
+                  <span className="text-slate-300">•</span>
+                  <span>Días de sol y tours 2–5 días</span>
+                  <span className="text-slate-300">•</span>
+                  <span>Turismo responsable en Guna Yala</span>
+                </div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3 text-[11px] text-slate-100/90">
+                <span className="rounded-full bg-black/30 px-3 py-1">
+                  Grupos pequeños
+                </span>
+                <span className="rounded-full bg-black/30 px-3 py-1">
+                  Operación local
+                </span>
+                <span className="rounded-full bg-black/30 px-3 py-1">
+                  Family friendly
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -190,7 +204,7 @@ export default function Home() {
             {experiencias.map((exp) => (
               <article key={exp.title} className="glass-card p-5">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="rounded-full bg-sky-50 px-3 py-1 text-[11px] font-semibold text-brandDeepBlue border border-sky-200">
+                  <span className="rounded-full bg-brandSoftBlue px-3 py-1 text-[11px] font-semibold text-brandDeepBlue border border-brandSoftBlue">
                     {exp.badge}
                   </span>
                 </div>
@@ -229,7 +243,7 @@ export default function Home() {
                 {diferenciales.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-2xl bg-white border border-sky-100 p-4"
+                    className="rounded-2xl bg-white border border-brandSoftBlue p-4"
                   >
                     <h3 className="text-sm font-semibold text-brandDeepBlue">
                       {item.title}
@@ -244,7 +258,7 @@ export default function Home() {
 
             <div className="relative h-64 md:h-72">
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-brandSoftBlue via-brandSand to-transparent blur-xl" />
-              <div className="relative h-full w-full overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-soft">
+              <div className="relative h-full w-full overflow-hidden rounded-3xl border border-brandSoftBlue bg-white shadow-soft">
                 <Image
                   src="/images/gallery-beach-wide.jpg"
                   alt="Playa en San Blas con palmeras y mar turquesa"
@@ -280,7 +294,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-5 grid gap-4 md:grid-cols-4">
-            <div className="relative h-52 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-soft md:col-span-2">
+            <div className="relative h-52 overflow-hidden rounded-3xl border border-brandSoftBlue bg-white shadow-soft md:col-span-2">
               <Image
                 src="/images/gallery-community.jpg"
                 alt="Comunidad Guna y muelle"
@@ -289,7 +303,7 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-52 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-soft">
+            <div className="relative h-52 overflow-hidden rounded-3xl border border-brandSoftBlue bg-white shadow-soft">
               <Image
                 src="/images/gallery-boat-family.jpg"
                 alt="Familia en lancha en San Blas"
@@ -298,7 +312,7 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-52 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-soft">
+            <div className="relative h-52 overflow-hidden rounded-3xl border border-brandSoftBlue bg-white shadow-soft">
               <Image
                 src="/images/gallery-kids-boat.jpg"
                 alt="Niños disfrutando del mar en lancha"
@@ -353,7 +367,7 @@ export default function Home() {
             {faqs.map((item) => (
               <details
                 key={item.q}
-                className="group rounded-2xl border border-sky-100 bg-white px-4 py-3"
+                className="group rounded-2xl border border-brandSoftBlue bg-white px-4 py-3"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-semibold text-brandDeepBlue">
                   <span>{item.q}</span>
@@ -391,7 +405,7 @@ export default function Home() {
                       name="nombre"
                       type="text"
                       required
-                      className="w-full rounded-xl border border-sky-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandOcean"
+                      className="w-full rounded-xl border border-brandSoftBlue bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandTeal"
                     />
                   </div>
                   <div>
@@ -402,7 +416,7 @@ export default function Home() {
                       name="email"
                       type="email"
                       required
-                      className="w-full rounded-xl border border-sky-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandOcean"
+                      className="w-full rounded-xl border border-brandSoftBlue bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandTeal"
                     />
                   </div>
                 </div>
@@ -414,7 +428,7 @@ export default function Home() {
                     <input
                       name="whatsapp"
                       type="text"
-                      className="w-full rounded-xl border border-sky-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandOcean"
+                      className="w-full rounded-xl border border-brandSoftBlue bg:white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandTeal"
                     />
                   </div>
                   <div>
@@ -424,7 +438,7 @@ export default function Home() {
                     <input
                       name="pais"
                       type="text"
-                      className="w-full rounded-xl border border-sky-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandOcean"
+                      className="w-full rounded-xl border border-brandSoftBlue bg:white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandTeal"
                     />
                   </div>
                 </div>
@@ -436,7 +450,7 @@ export default function Home() {
                     name="mensaje"
                     rows={4}
                     placeholder="Día de sol, tour 3 días / 2 noches, expedición Panamá → Colombia, tour privado, etc."
-                    className="w-full rounded-xl border border-sky-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandOcean"
+                    className="w-full rounded-xl border border-brandSoftBlue bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandTeal"
                   />
                 </div>
                 <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -482,7 +496,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-sky-100 bg-white/95 p-5">
+              <div className="rounded-3xl border border-brandSoftBlue bg-white/95 p-5">
                 <h3 className="text-base font-semibold text-brandDeepBlue">
                   Síguenos en redes
                 </h3>
