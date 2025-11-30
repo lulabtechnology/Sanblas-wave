@@ -2,21 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-}
-
 body {
-  @apply bg-brandNavySoft text-slate-50 font-body;
+  @apply bg-sky-50 text-brandDeepBlue font-body antialiased;
 }
 
-/* Fondo inspirado en San Blas: mar, cielo y vegetación */
 .page-bg {
-  background:
-    radial-gradient(circle at top, rgba(56, 189, 248, 0.28), transparent 60%),
-    radial-gradient(circle at bottom left, rgba(45, 212, 191, 0.24), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.16), transparent 60%),
-    linear-gradient(to bottom, #02131b 0%, #02313f 40%, #024554 100%);
+  @apply bg-sky-50;
+}
+
+/* Tarjetas principales */
+.glass-card {
+  @apply bg-white border border-sky-100 rounded-3xl shadow-soft;
+}
+
+/* Botones */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
+  text-white bg-gradient-to-r from-brandOcean via-brandTeal to-brandOcean
+  shadow-soft hover:shadow-lg hover:-translate-y-[1px] transition-all duration-200;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
+  border border-sky-200 text-brandDeepBlue bg-white/80 hover:bg-sky-50 transition-all duration-200;
 }
 
 /* Scrollbar suave */
@@ -24,28 +32,9 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #02131b;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5f5;
   border-radius: 999px;
-}
-
-/* Cartas de cristal */
-.glass-card {
-  @apply bg-slate-900/75 backdrop-blur-xl border border-slate-700/60 rounded-3xl shadow-soft;
-}
-
-/* Botones principales - gradiente suave, no chillón */
-.btn-primary {
-  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold
-  bg-gradient-to-r from-brandTurquoise via-brandSky to-brandOrange
-  text-slate-950 shadow-soft hover:shadow-[0_18px_45px_rgba(56,189,248,0.55)]
-  hover:-translate-y-[1px] transition-all duration-200;
-}
-
-.btn-outline {
-  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
-  border border-slate-500/70 text-slate-100 hover:bg-slate-900/70 hover:border-brandTurquoise
-  transition-all duration-200;
 }
