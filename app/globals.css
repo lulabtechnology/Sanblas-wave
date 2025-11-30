@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-brandNavy text-slate-50 font-body;
+}
+
+/* Scrollbar suave */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020824;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 999px;
+}
+
+/* Gradiente de fondo global */
+.page-bg {
+  background:
+    radial-gradient(circle at top left, rgba(32, 212, 210, 0.23), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(255, 138, 61, 0.24), transparent 55%),
+    #020824;
+}
+
+/* Cartas de cristal */
+.glass-card {
+  @apply bg-slate-900/70 backdrop-blur-xl border border-slate-700/60 rounded-3xl shadow-soft;
+}
+
+/* Botones principales */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold
+  bg-gradient-to-r from-brandOrange via-brandGold to-brandTurquoise
+  text-slate-950 shadow-soft hover:shadow-[0_18px_45px_rgba(251,191,84,0.55)]
+  hover:-translate-y-[1px] transition-all duration-200;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
+  border border-slate-500/70 text-slate-100 hover:bg-slate-900/70 hover:border-brandTurquoise
+  transition-all duration-200;
+}
