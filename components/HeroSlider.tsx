@@ -6,83 +6,73 @@ import { useEffect, useState } from "react";
 const slides = [
   {
     id: 1,
-    title: "Islas de agua turquesa",
-    subtitle: "Playas tranquilas, arena suave y mar cristalino.",
     image: "/images/hero-beach-1.jpg",
-    tag: "Día de sol",
+    alt: "Playa de arena blanca y palmeras en San Blas",
+    label: "Playas vírgenes",
   },
   {
     id: 2,
-    title: "Lanchas seguras y cómodas",
-    subtitle: "Traslados coordinados con capitanes locales.",
     image: "/images/hero-boat-friends.jpg",
-    tag: "Traslados + tours",
+    alt: "Grupo de amigos disfrutando en lancha en San Blas",
+    label: "Lanchas seguras",
   },
   {
     id: 3,
-    title: "Aventura en familia",
-    subtitle: "Niños, parejas y amigos disfrutando juntos.",
     image: "/images/hero-boat-kids.jpg",
-    tag: "Family friendly",
+    alt: "Niños disfrutando del mar en lancha",
+    label: "Aventura en familia",
   },
 ];
 
 export default function HeroSlider() {
-  const [active, setActive] = useState(0);
+  const [index, setIndex] = useState(0);
 
+  // Cambio automático de fondo
   useEffect(() => {
     const id = setInterval(
-      () => setActive((prev) => (prev + 1) % slides.length),
-      5500
+      () => setIndex((prev) => (prev + 1) % slides.length),
+      6000
     );
     return () => clearInterval(id);
   }, []);
 
-  const goTo = (index: number) => setActive(index);
-
   return (
-    <div className="relative w-full max-w-xl">
-      <div className="glass-card overflow-hidden">
-        <div className="relative h-64 w-full sm:h-72">
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`absolute inset-0 transition-opacity duration-700 ${
-                index === active ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                sizes="(max-width:768px) 100vw, 480px"
-                className="object-cover"
-                priority={index === 0}
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
-              <div className="absolute left-4 right-4 bottom-4 space-y-1 text-sm text-white drop-shadow">
-                <span className="inline-flex items-center rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-brandDeepBlue">
-                  {slide.tag}
-                </span>
-                <h3 className="text-base font-semibold">{slide.title}</h3>
-                <p className="text-xs text-slate-100">{slide.subtitle}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Indicadores */}
-      <div className="mt-3 flex items-center justify-center gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goTo(index)}
-            className={`h-2.5 rounded-full transition-all ${
-              index === active ? "w-6 bg-brandOcean" : "w-2 bg-sky-300"
-            }`}
-            aria-label={`Ir al slide ${index + 1}`}
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      {slides.map((slide, i) => (
+        <div
+          key={slide.id}
+          className={`absolute inset-0 transition-opacity duration-[1200ms] ease-out ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src={slide.image}
+            alt={slide.alt}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={i === 0}
           />
+          {/* Degradado para que el texto se lea bien */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/40 to-black/10" />
+        </div>
+      ))}
+
+      {/* Pills en la esquina inferior derecha */}
+      <div className="absolute bottom-4 right-4 flex flex-wrap justify-end gap-2 text-[11px]">
+        {slides.map((slide, i) => (
+          <button
+            key={slide.id}
+            type="button"
+            onClick={() => setIndex(i)}
+            className={`rounded-full border px-3 py-1 backdrop-blur-sm transition-all ${
+              i === index
+                ? "border-white bg-white/90 text-brandDeepBlue"
+                : "border-white/50 bg-black/30 text-slate-100"
+            }`}
+          >
+            {slide.label}
+          </button>
         ))}
       </div>
     </div>
