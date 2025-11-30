@@ -7,20 +7,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brandOcean: "#0EA5E9",     // azul Caribe
-        brandDeepBlue: "#0F172A",  // azul profundo
-        brandTeal: "#14B8A6",      // verde agua
-        brandSand: "#FEF9C3",      // arena
-        brandSoftBlue: "#E0F2FE",  // cielo suave
-        brandOrange: "#FB923C",    // naranja del logo
-        brandGold: "#FACC15",      // amarillo del logo
+        // Azul-verde profundo (texto principal, títulos)
+        brandDeepBlue: "#083046",
+        // Celeste mar Caribe
+        brandOcean: "#00A8E8",
+        // Verde agua / coral reef
+        brandTeal: "#00C9A7",
+        // Arena suave / atardecer claro
+        brandSand: "#FFD9A0",
+        // Fondo azul muy suave
+        brandSoftBlue: "#E6F5FF",
+        // Naranja atardecer
+        brandOrange: "#FF8C42",
       },
       fontFamily: {
         display: ["system-ui", "sans-serif"],
         body: ["system-ui", "sans-serif"],
       },
       boxShadow: {
-        soft: "0 18px 40px rgba(15,23,42,0.18)",
+        soft: "0 18px 45px rgba(15,23,42,0.16)",
       },
     },
   },
