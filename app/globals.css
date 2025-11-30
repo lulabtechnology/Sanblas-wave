@@ -2,39 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+}
+
 body {
-  @apply bg-sky-50 text-brandDeepBlue font-body antialiased;
+  @apply bg-white text-slate-900 font-body antialiased;
 }
 
+/* Fondo general: cielo suave + blanco + toque de atardecer */
 .page-bg {
-  @apply bg-sky-50;
+  background:
+    radial-gradient(circle at top left, rgba(0, 201, 167, 0.20), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(255, 140, 66, 0.20), transparent 55%),
+    linear-gradient(to bottom, #E6F5FF 0%, #FFFFFF 40%, #FFF7EC 100%);
 }
 
-/* Tarjetas principales */
-.glass-card {
-  @apply bg-white border border-sky-100 rounded-3xl shadow-soft;
-}
-
-/* Botones */
-.btn-primary {
-  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
-  text-white bg-gradient-to-r from-brandOcean via-brandTeal to-brandOcean
-  shadow-soft hover:shadow-lg hover:-translate-y-[1px] transition-all duration-200;
-}
-
-.btn-outline {
-  @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold
-  border border-sky-200 text-brandDeepBlue bg-white/80 hover:bg-sky-50 transition-all duration-200;
-}
-
-/* Scrollbar suave */
+/* Scrollbar discreto */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5f5;
+  background: #CBD5F5;
   border-radius: 999px;
+}
+
+/* Tarjetas limpias, con borde en azul clarito */
+.glass-card {
+  @apply bg-white/95 border border-brandSoftBlue/80 rounded-3xl shadow-soft;
+}
+
+/* Botón principal: mezcla verde-agua → celeste → atardecer */
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-semibold
+  text-white bg-gradient-to-r from-brandTeal via-brandOcean to-brandOrange
+  shadow-soft hover:shadow-lg hover:-translate-y-[1px] transition-all duration-200;
+}
+
+/* Botón outline: blanco + bordes celestes, texto azul profundo */
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full px-6 py-2.5 text-sm font-semibold
+  border border-brandSoftBlue text-brandDeepBlue bg-white/85
+  hover:border-brandTeal hover:text-brandTeal hover:bg-brandSoftBlue/60
+  transition-all duration-200;
 }
